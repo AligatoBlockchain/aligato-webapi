@@ -7,3 +7,8 @@ WebAPI to usługa sieciowa, która umożliwia wymianę informacji między zasoba
 
 W Aligato korzystamy z technologii API - SOAP .
 
+Adres środowiska testowego: https://apisandbox.aligato.pl
+
+Adres api: https://apisandbox.aligato.pl/api/server.php?wsdl
+
+Adres generatora klucza: https://apisandbox.aligato.pl/api.html 
