@@ -1,4 +1,4 @@
-# ![Aligato WebAPI](https://raw.githubusercontent.com/AligatoBlockchain/aligato-webapi/master/aligato-webapi150x150.png)
+# ![Aligato WebAPI](https://raw.githubusercontent.com/AligatoBlockchain/aligato-webapi/master/aligato-webapi3.png)
 
 Założyliśmy profil **Aligato WebAPI** na GitHubie po to, aby łatwiej zgłaszać problemy, zadawać pytania i szukać odpowiedzi w już rozwiązanych wątkach. 
 
