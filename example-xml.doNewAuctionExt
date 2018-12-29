@@ -1,0 +1,66 @@
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:AligatoWebApi">
+   <SOAP-ENV:Body>
+      <ns1:API.doNewAuctionExt xmlns:ns1="doNewAuctionExt">
+            <sessionHandlePart xsi:type="xsd:string">????</sessionHandlePart>   // id sesji pobierany przez @API.doLoginEnc
+  <fields>
+
+// parametry podstawowe
+      <itemName xsi:type="xsd:string">????</itemName> // nazwa oferty ; minimum 4 znaki
+      <itemDescription xsi:type="xsd:string">?????</itemDescription>    // opis oferty ; minimum 10 znaków
+      <auctionType xsi:type="xsd:string">fixed</auctionType> // typ oferty: fixed -> oferta kup teraz ; regular - aukcja
+      <auctionDetails xsi:type="xsd:string">public</auctionDetails> // Detale ofert ; public -> wystaw natychmiast
+      <categoryId xsi:type="xsd:integer">283</categoryId > // id kategorii pobierany poprzez @API.doGetCategories  ; np. Dom i zdrowie > Delikatesy > Bakalie i konfitury > Bakalie -> 283
+
+// opcje promowania
+      <enhancements>
+             <featured xsi:type="xsd:boolean">false</featured > // Czy oferta ma być wyróżniona w kategorii? ; True/False
+          <highlite xsi:type="xsd:boolean">false</highlite >    // Czy oferta ma być podświetlona? ; True/False
+             <bold xsi:type="xsd:boolean">false</bold >     // Czy nazwa oferty ma być pogrubiona? ; True/False
+          <autoRelist xsi:type="xsd:boolean">false</autoRelist >    // Czy oferta ma być automatyczie wznawiana? ; True/False
+          <featuredSearchResults xsi:type="xsd:boolean">false</featuredSearchResults >  // Czy oferta ma być wyróżniona w wynikach wyszukiawania ; True/False
+      </enhancements>
+
+// parametry rodzaju dostawcy    
+      <shipping>    // Opcje dostawy nr 1
+          <country xsi:type="xsd:integer">???</country >       // ID Kraju dostawy pobierany przez @API.doGetCountries ; np. Polska -> 130
+          <service xsi:type="xsd:integer">???</service>      // ID dostawcy pobierany przez @API.doGetShippers ; np. Darmowa dostawa -> 43 , Kurier InPost -> 70
+          <price xsi:type="xsd:float">0.00</price >     // Koszt dostawy, gdy wybierzesz service = 43 wtedy ustaw price = 0.00
+      </shipping>
+
+      <shipping>    // Opcje dostawy nr 2
+          <country xsi:type="xsd:integer">???</country >       // ID Kraju dostawy pobierany przez @API.doGetCountries ; np. Polska -> 130
+          <service xsi:type="xsd:integer">???</service>      // ID dostawcy pobierany przez @API.doGetShippers ; np. Darmowa dostawa -> 43 , Kurier InPost -> 70
+          <price xsi:type="xsd:float">0.00</price >     // Koszt dostawy, gdy wybierzesz service = 43 wtedy ustaw price = 0.00
+      </shipping>
+
+// parametry dostawy i czasu
+      <shipMethod xsi:type="xsd:string">flatrate</shipMethod >      // Metoda dostawy: flatrate -> Taki sam koszt dla wszystkich klientów ; localpickup -> odbiór na miejscu
+      <handlingTime>1</handlingTime>    // Czas trwania oferty ilosc dni, dostępne -> '1', '2', '3', '4', '5', '10', '15', '30' ; np. 1
+      <gtc></gtc>    // Czas trwania oferty do wyczerpania przedmiotów ; 1 = TAK, 0 = NIE ; default = 1
+
+// parametry ceny  
+    <buyNow xsi:type="xsd:boolean">True</buyNow>       // Opcja Kup teraz, True/False ; default = true
+    <buyNowPrice xsi:type="xsd:numeric">0.00</buyNowPrice>       // Cena kup teraz, gdy auctiontType = fixed ; np. 49.99
+    <buyNowQty xsi:type="xsd:integer">1</buyNowQty>     // Ilosc sztuk ; minimalna wartosc = 1
+    <buyNowQtyLot xsi:type="xsd:integer"></buyNowQtyLot>  // Ustawi cene za komplet, ilosc kompletów ; jesli nie używasz pozostaw puste ; np. 1
+    <startPrice xsi:type="xsd:numeric"></startPrice>       // Cena poczatkowa, gdy auctiontType = regular ; jesli nie używasz pozostaw puste ; np. 1.50
+    <reservePrice xsi:type="xsd:numeric"></reservePrice>     // Cena minimalna, gdy auctionType = regular ; jesli nie używasz pozostaw puste ; np. 5.50
+
+// opcje płatnosci
+    <cod xsi:type="xsd:boolean">True</cod>      // Płatnosć przy odbiorze True/False ; default = false
+    <bankTransfer xsi:type="xsd:boolean">True</bankTransfer>        // Płatnosć tradycyjny przelew bankowy True/False ; default = false
+
+// parametry zwrotów
+    <returnPolicy xsi:type="xsd:string"></returnPolicy>   // Opis polityki zwrotów, gdy brak opisu pozostaw puste ; opcjonalne
+
+// parametry lokalizacji
+    <city>???</city >    // Lokalizacja wystawcy - miasto ; np. Warszawa  ; wymagane
+    <zipCode>???</zipCode >  // Lokalizacja wystawcy - kod pocztowy ; np. 00-111  ; wymagane
+    <state>????</state >      // Lokalizacja wystawcy - id województwa/stanu ; Dolnośląskie -> 2900; Kujawsko-Pomorskie -> 2901 ;Łódźkie -> 2902 ; Lubelskie -> 2903 ; Lubuskie -> 2904 ; Małopolskie -> 2905 ; Mazowieckie -> 2906 ; Opolskie -> 2907 ; Podkarpackie -> 2908 ; Podlaskie -> 2909 ; Pomorskie -> 2910 ; Śląskie -> 2911 ; Świętokrzyskie -> 2912 ; Warmińsko-Mazurskie -> 2913 ; Wielkopolskie -> 2914 ; Zachodniopomorskie -> 2915 ; wymagane
+    <countryId>130</countryId>  // ID Kraju wystawcy pobierany przez @API.doGetCountries ; np. Polska -> 130   ; wymagane
+
+  </fields>
+
+      </ns1:API.doNewAuctionExt>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
