@@ -135,6 +135,16 @@ try
             'zipCode' => '00-000',      // Lokalizacja wystawcy - kod pocztowy ; np. 00-111  ; wymagane
             'state' => '2904',           // Lokalizacja wystawcy - id województwa/stanu ; Dolnoœl¹skie -> 2900; Kujawsko-Pomorskie -> 2901 ;£ódŸkie -> 2902 ; Lubelskie -> 2903 ; Lubuskie -> 2904 ; Ma³opolskie -> 2905 ; Mazowieckie -> 2906 ; Opolskie -> 2907 ; Podkarpackie -> 2908 ; Podlaskie -> 2909 ; Pomorskie -> 2910 ; Œl¹skie -> 2911 ; Œwiêtokrzyskie -> 2912 ; Warmiñsko-Mazurskie -> 2913 ; Wielkopolskie -> 2914 ; Zachodniopomorskie -> 2915 ; wymagane
             'countryId' => '130'        // ID Kraju wystawcy pobierany przez @API.doGetCountries ; np. Polska -> 130   ; wymagane
+
+    // url do zdjec / max 10 zdjec
+  	    'images' => [
+                @base64_encode(file_get_contents('https://image.shutterstock.com/image-vector/cute-ladybug-icon-vector-illustration-600w-1532656733.jpg')),
+                @base64_encode(file_get_contents('https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg')),
+                @base64_encode(file_get_contents('https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg')),
+
+
+            ],
+
     ];
     var_dump($client->doNewAuctionExt($request));
 }
