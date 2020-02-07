@@ -58,6 +58,8 @@
     <zipCode>???</zipCode >  // Lokalizacja wystawcy - kod pocztowy ; np. 00-111  ; wymagane
     <state>????</state >      // Lokalizacja wystawcy - id województwa/stanu ; Dolnośląskie -> 2900; Kujawsko-Pomorskie -> 2901 ;Łódźkie -> 2902 ; Lubelskie -> 2903 ; Lubuskie -> 2904 ; Małopolskie -> 2905 ; Mazowieckie -> 2906 ; Opolskie -> 2907 ; Podkarpackie -> 2908 ; Podlaskie -> 2909 ; Pomorskie -> 2910 ; Śląskie -> 2911 ; Świętokrzyskie -> 2912 ; Warmińsko-Mazurskie -> 2913 ; Wielkopolskie -> 2914 ; Zachodniopomorskie -> 2915 ; wymagane
     <countryId>130</countryId>  // ID Kraju wystawcy pobierany przez @API.doGetCountries ; np. Polska -> 130   ; wymagane
+// zdjecia
+    <images>https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(98).jpg</images>  // url zdjec; 
 
   </fields>
 
